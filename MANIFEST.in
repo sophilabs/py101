@@ -1,0 +1,13 @@
+
+include AUTHORS.rst
+
+include CONTRIBUTING.rst
+include HISTORY.rst
+include LICENSE
+include README.rst
+
+recursive-include tests *
+recursive-include py101 *.py *.rst *.mo *.po *.pot
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
