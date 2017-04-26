@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-26 15:15-0300\n"
+"POT-Creation-Date: 2017-04-26 16:25-0300\n"
 "PO-Revision-Date: 2017-04-26 15:15-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -20,9 +20,9 @@ msgstr ""
 
 #: py101/__init__.py:15
 msgid "Learn Python essentials using the command line"
-msgstr ""
+msgstr "Aprende lo esencial de Python usando la línea de comando"
 
-#: py101/introduction/__init__.py:47
+#: py101/introduction/__init__.py:48
 msgid "Introduction"
-msgstr ""
+msgstr "Introducción"
 
