@@ -1,7 +1,7 @@
 """"
 Introduction Adventure
 
-Author: igui
+Author: Ignacio Avas (iavas@sophilabs.com)
 """
 import codecs
 import io
