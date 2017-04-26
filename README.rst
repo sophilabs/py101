@@ -14,7 +14,7 @@ py101
      :alt: Updates
 
 
-A pyschool story for learning regular expressions.
+A pyschool story for learning Python Basics.
 
 Credits
 -------

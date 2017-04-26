@@ -12,7 +12,7 @@ __version__ = '0.4.10'
 class Story(BaseStory):
 
     name = 'py101'
-    title = _('Learn regular expressions with Python')
+    title = _('Learn Python essentials using the command line')
     adventures = [
         introduction
     ]
