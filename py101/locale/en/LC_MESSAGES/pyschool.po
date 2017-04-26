@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-25 18:02-0300\n"
-"PO-Revision-Date: 2017-04-25 18:02-0300\n"
+"POT-Creation-Date: 2017-04-26 15:15-0300\n"
+"PO-Revision-Date: 2017-04-26 15:15-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
 "Language-Team: en <LL@li.org>\n"
@@ -18,40 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.4.0\n"
 
-#: py101/__init__.py:17
-msgid "Learn regular expressions with Python"
+#: py101/__init__.py:15
+msgid "Learn Python essentials using the command line"
 msgstr ""
 
-#: py101/utils.py:27
-msgid ""
-"I can't import a module from {}. Are you sure the file exists and it's a "
-"valid python file?"
-msgstr ""
-
-#: py101/utils.py:31
-msgid ""
-"I can't find a function definition in {}. Read the adventure again and "
-"use the template proposed there."
-msgstr ""
-
-#: py101/utils.py:38
-msgid ""
-"I found a function in your file but it doesn't accept the required number"
-" of parameters ({}). If you define several functions in your file, make "
-"sure the solution function is the first one."
-msgstr ""
-
-#: py101/introduction/__init__.py:9
+#: py101/introduction/__init__.py:47
 msgid "Introduction"
-msgstr ""
-
-#: py101/introduction/__init__.py:17
-msgid ""
-"Your function didn't return True when executed with a correct argument "
-"'{}'."
-msgstr ""
-
-#: py101/introduction/__init__.py:23
-msgid "Your function returned True when executed with a wrong argument '{}'."
 msgstr ""
 
