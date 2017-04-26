@@ -1,9 +1,5 @@
-`program.py` content:
+`hello.py` content:
 
 .. sourcecode:: python
 
-    import re
-
-
-    def test(string):
-        return re.search('Python', string)
+  print("Hello World")
