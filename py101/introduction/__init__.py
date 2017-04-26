@@ -7,9 +7,9 @@ import codecs
 import io
 import sys
 import unittest
-from unittest.mock import create_autospec
 from story.adventures import AdventureVerificationError, BaseAdventure
 from story.translation import gettext as _
+
 
 class TestOutput(unittest.TestCase):
     "Introduction Adventure test"
@@ -41,6 +41,7 @@ class TestOutput(unittest.TestCase):
             'hello world',
             "Should have printed 'Hello World'"
         )
+
 
 class Adventure(BaseAdventure):
     "Introduction Adventure"
