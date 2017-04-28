@@ -13,7 +13,7 @@ from story.translation import gettext as _
 
 class TestOutput(unittest.TestCase):
     """Variables Adventure test"""
-    def __init__(self, candidate_code, file_name = '<inline>'):
+    def __init__(self, candidate_code, file_name='<inline>'):
         """Init the test"""
         super(TestOutput, self).__init__()
         self.candidate_code = candidate_code
