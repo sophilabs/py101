@@ -3,6 +3,7 @@ from py101 import variables
 from py101 import lists
 import unittest
 
+
 class TestStory(unittest.TestCase):
     def test_name(self):
         self.assertEqual(Story().name, 'py101', "name should be py101")
