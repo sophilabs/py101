@@ -4,6 +4,7 @@ import py101.introduction
 import py101.lists
 import py101.variables
 import py101.operators
+import py101.formatting
 import unittest
 
 
@@ -28,6 +29,10 @@ adventures = [
     AdventureData(
         py101.operators,
         """print('ka'*10)"""
+    ),
+    AdventureData(
+        py101.formatting,
+        """s = 'Talk is {}. Show me the {}.'.format('cheap', 'code'); print(s)"""
     )
 ]
 
