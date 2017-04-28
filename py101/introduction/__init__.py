@@ -13,10 +13,11 @@ from story.translation import gettext as _
 
 class TestOutput(unittest.TestCase):
     "Introduction Adventure test"
-    def __init__(self, sourcefile):
-        "Inits the test"
+    def __init__(self, candidate_code, file_name='<inline>'):
+        """Init the test"""
         super(TestOutput, self).__init__()
-        self.sourcefile = sourcefile
+        self.candidate_code = candidate_code
+        self.file_name = file_name
 
     def setUp(self):
         self.__old_stdout = sys.stdout
@@ -33,8 +34,7 @@ class TestOutput(unittest.TestCase):
 
     def runTest(self):
         "Makes a simple test of the output"
-        raw_program = codecs.open(self.sourcefile).read()
-        code = compile(raw_program, self.sourcefile, 'exec', optimize=0)
+        code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
         exec(code)
         self.assertEqual(
             self.__mockstdout.getvalue().lower().strip(),
@@ -44,14 +44,16 @@ class TestOutput(unittest.TestCase):
 
 
 class Adventure(BaseAdventure):
-    "Introduction Adventure"
     title = _('Introduction')
 
     @classmethod
     def test(cls, sourcefile):
-        "Test against the provided file"
+        """Test against the provided file"""
         suite = unittest.TestSuite()
-        suite.addTest(TestOutput(sourcefile))
+        raw_program = codecs.open(sourcefile).read()
+        suite.addTest(TestOutput(raw_program, sourcefile))
         result = unittest.TextTestRunner().run(suite)
         if not result.wasSuccessful():
             raise AdventureVerificationError()
+
+
