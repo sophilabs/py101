@@ -1,7 +1,7 @@
 from story.story import BaseStory
 from story.translation import gettext as _
 
-from . import (introduction, variables)
+from . import (introduction, variables, lists, operators)
 
 
 __author__ = """Sophilabs"""
@@ -10,9 +10,7 @@ __version__ = '0.0.1'
 
 
 class Story(BaseStory):
-    "Python Essentials Adventure"
+    """Python Essentials Adventure"""
     name = 'py101'
     title = _('Learn Python essentials using the command line')
-    adventures = [
-        introduction, variables
-    ]
+    adventures = (introduction, variables, lists, operators)
