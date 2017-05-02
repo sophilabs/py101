@@ -20,7 +20,7 @@ Python provee las sentencias "if", que consisten de una expressión booleana (Tr
     if y == 0:
         print('El divisor no debe ser 0')
     else:
-        print('El resultado es{0}'.format(x/y))
+        print('El resultado es {{0}}'.format(x/y))
 
 Las sentencias if pueden ser anidadas, permitiendo ejecutar código más complejo.
 
