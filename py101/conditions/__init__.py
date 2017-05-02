@@ -7,6 +7,7 @@ import codecs
 import io
 import sys
 import unittest
+import ast
 from story.adventures import AdventureVerificationError, BaseAdventure
 from story.translation import gettext as _
 
@@ -14,11 +15,24 @@ from story.translation import gettext as _
 class TestOutput(unittest.TestCase):
     """Adventure test"""
 
+    inmutable_code_str = """
+if first_number > 15:
+    print("1")
+    if second_number > 15:
+        print("2")
+
+if first_number < second_number:
+    print("3")
+else:
+    print("Error")
+"""
+
     def __init__(self, candidate_code, file_name='<inline>'):
         """Init the test"""
         super(TestOutput, self).__init__()
         self.candidate_code = candidate_code
         self.file_name = file_name
+        self.inmutable_code = ast.parse(self.inmutable_code_str, file_name, 'exec')
 
     def setUp(self):
         self.__old_stdout = sys.stdout
@@ -31,9 +45,19 @@ class TestOutput(unittest.TestCase):
     def runTest(self):
         """Makes a simple test of the output"""
 
-        #code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
-        #exec(code)
-        self.fail("Test not implemented")
+        body = ast.parse(self.candidate_code, self.file_name, 'exec')
+
+        # Looks if the code is the same as the provided code.
+        body_dump = ast.dump(body)
+        for node in self.inmutable_code.body:
+            self.assertTrue(body_dump.find(ast.dump(node)) >= 0, "Provided code should not be modified")
+
+        code = compile(self.candidate_code, self.file_name, 'exec')
+        exec(code)
+        self.assertMultiLineEqual('1\n2\n3\n',
+                                  self.__mockstdout.getvalue(),
+                                  'Output is not correct')
+
 
 
 class Adventure(BaseAdventure):

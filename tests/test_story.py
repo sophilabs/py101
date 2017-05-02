@@ -6,6 +6,7 @@ import py101.variables
 import py101.operators
 import py101.formatting
 import py101.strings
+import py101.conditions
 import unittest
 
 
@@ -42,6 +43,24 @@ print(len(mystring))
 print(mystring.upper())
 print(mystring.lower())
 print(mystring.split(' '))
+"""
+    ),
+    AdventureData(
+        py101.conditions,
+        """# change this code
+first_number = 20
+second_number = 22
+
+# don't change this code
+if first_number > 15:
+    print("1")
+    if second_number > 15:
+        print("2")
+
+if first_number < second_number:
+    print("3")
+else:
+    print("Error")
 """
     )
 ]
