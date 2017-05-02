@@ -1,5 +1,5 @@
 """"
-Boilerplate Adventure
+Loopsgit gi Adventure
 
 Author: Ignacio Avas (iavas@sophilabs.com)
 """
@@ -37,8 +37,8 @@ class TestOutput(unittest.TestCase):
 
 
 class Adventure(BaseAdventure):
-    """Boilerplate Adventure"""
-    title = '<Insert Title Here>'
+    """Loops Adventure"""
+    title = _('Looping')
 
     @classmethod
     def test(cls, sourcefile):

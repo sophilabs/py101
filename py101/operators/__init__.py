@@ -1,5 +1,5 @@
 """"
-Boilerplate Adventure
+Operators Adventure
 
 Author: Ignacio Avas (iavas@sophilabs.com)
 """

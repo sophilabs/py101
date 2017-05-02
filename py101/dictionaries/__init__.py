@@ -37,8 +37,8 @@ class TestOutput(unittest.TestCase):
 
 
 class Adventure(BaseAdventure):
-    """Boilerplate Adventure"""
-    title = '<Insert Title Here>'
+    """Dictionary Adventure"""
+    title = _('Dictionaries')
 
     @classmethod
     def test(cls, sourcefile):

@@ -1,5 +1,5 @@
 """"
-Boilerplate Adventure
+Classes Adventure
 
 Author: Ignacio Avas (iavas@sophilabs.com)
 """
@@ -37,8 +37,8 @@ class TestOutput(unittest.TestCase):
 
 
 class Adventure(BaseAdventure):
-    """Boilerplate Adventure"""
-    title = '<Insert Title Here>'
+    """Classes Adventure"""
+    title = _('Classes')
 
     @classmethod
     def test(cls, sourcefile):

@@ -1,5 +1,5 @@
 """"
-Boilerplate Adventure
+Formatting Adventure
 
 Author: Ignacio Avas (iavas@sophilabs.com)
 """
@@ -52,7 +52,7 @@ class TestOutput(unittest.TestCase):
 
 
 class Adventure(BaseAdventure):
-    """Boilerplate Adventure"""
+    """Formatting Adventure"""
     title = _('String Formatting')
 
     @classmethod
