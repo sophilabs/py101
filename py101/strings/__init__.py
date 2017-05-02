@@ -14,6 +14,14 @@ from story.translation import gettext as _
 class TestOutput(unittest.TestCase):
     """Adventure test"""
 
+    expected_output = [
+        "17",
+        "THIS IS MY STRING",
+        "this is my string",
+        "['This', 'Is', 'MY', 'string']",
+        ""
+    ]
+
     def __init__(self, candidate_code, file_name='<inline>'):
         """Init the test"""
         super(TestOutput, self).__init__()
@@ -31,9 +39,15 @@ class TestOutput(unittest.TestCase):
     def runTest(self):
         """Makes a simple test of the output"""
 
-        # code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
-        # exec(code)
-        self.fail("Test not implemented")
+        code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
+
+        self.assertIn('len', code.co_names, 'Should have called the len function')
+        self.assertIn('split', code.co_names, 'Should have called the split function')
+        self.assertIn('upper', code.co_names, 'Should have called the upper function')
+        self.assertIn('lower', code.co_names, 'Should have called the lower function')
+        exec(code)
+        lines = self.__mockstdout.getvalue().split('\n')
+        self.assertEqual(self.expected_output, lines, 'Should have same output')
 
 
 class Adventure(BaseAdventure):

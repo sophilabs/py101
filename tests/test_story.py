@@ -5,6 +5,7 @@ import py101.lists
 import py101.variables
 import py101.operators
 import py101.formatting
+import py101.strings
 import unittest
 
 
@@ -33,6 +34,15 @@ adventures = [
     AdventureData(
         py101.formatting,
         """s = 'Talk is {}. Show me the {}.'.format('cheap', 'code'); print(s)"""
+    ),
+    AdventureData(
+        py101.strings,
+        """mystring = 'This Is MY string'
+print(len(mystring))
+print(mystring.upper())
+print(mystring.lower())
+print(mystring.split(' '))
+"""
     )
 ]
 
