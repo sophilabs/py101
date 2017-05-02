@@ -7,6 +7,7 @@ import py101.operators
 import py101.formatting
 import py101.strings
 import py101.conditions
+import py101.loops
 import unittest
 
 
@@ -62,7 +63,12 @@ if first_number < second_number:
 else:
     print("Error")
 """
-    )
+    ),
+    AdventureData(
+        py101.loops,
+        """for number in range(100):
+        if number % 2 == 1: print(number)"""
+    ),
 ]
 
 
