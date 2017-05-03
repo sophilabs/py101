@@ -43,7 +43,11 @@ class TestOutput(unittest.TestCase):
             '{}' in node.value.s
         ]
 
-        self.assertTrue(len(format_nodes) > 0, "It should have at one format call with curly braces {}")
+        self.assertGreater(
+            len(format_nodes),
+            0,
+            "It should have at one format call with curly braces {}"
+            )
 
         exec(code)
         self.assertMultiLineEqual('Talk is cheap. Show me the code.\n',

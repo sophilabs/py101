@@ -34,11 +34,18 @@ class TestOutput(unittest.TestCase):
         body = ast.parse(self.candidate_code, self.file_name, 'exec')
         code = compile(self.candidate_code, self.file_name, 'exec')
 
-        mult_instructions = [node for node in ast.walk(body) if isinstance(node, ast.Mult)]
-        self.assertTrue(len(mult_instructions) > 0, "It should have at least one duplication")
-
+        mult_instructions = [
+            node for node in ast.walk(body)
+            if isinstance(node, ast.Mult)
+        ]
+        self.assertGreater(len(mult_instructions),
+                           0,
+                           "It should have at least one duplication"
+                           )
         exec(code)
-        self.assertMultiLineEqual('ka'*10+'\n', self.__mockstdout.getvalue(), "Should have printed ka 10 times")
+        self.assertMultiLineEqual('ka'*10+'\n',
+                                  self.__mockstdout.getvalue(),
+                                  "Should have printed ka 10 times")
 
 
 class Adventure(BaseAdventure):

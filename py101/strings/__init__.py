@@ -41,13 +41,24 @@ class TestOutput(unittest.TestCase):
 
         code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
 
-        self.assertIn('len', code.co_names, 'Should have called the len function')
-        self.assertIn('split', code.co_names, 'Should have called the split function')
-        self.assertIn('upper', code.co_names, 'Should have called the upper function')
-        self.assertIn('lower', code.co_names, 'Should have called the lower function')
+        self.assertIn('len',
+                      code.co_names,
+                      'Should have called the len function')
+        self.assertIn('split',
+                      code.co_names,
+                      'Should have called the split function')
+        self.assertIn('upper',
+                      code.co_names,
+                      'Should have called the upper function')
+        self.assertIn('lower',
+                      code.co_names,
+                      'Should have called the lower function')
         exec(code)
         lines = self.__mockstdout.getvalue().split('\n')
-        self.assertEqual(self.expected_output, lines, 'Should have same output')
+        self.assertEqual(self.expected_output,
+                         lines,
+                         'Should have same output'
+                         )
 
 
 class Adventure(BaseAdventure):

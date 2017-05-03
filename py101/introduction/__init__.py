@@ -12,7 +12,7 @@ from story.translation import gettext as _
 
 
 class TestOutput(unittest.TestCase):
-    "Introduction Adventure test"
+    """Introduction Adventure test"""
     def __init__(self, candidate_code, file_name='<inline>'):
         """Init the test"""
         super(TestOutput, self).__init__()
@@ -29,7 +29,7 @@ class TestOutput(unittest.TestCase):
 
     @staticmethod
     def mock_print(stringy):
-        "Mock function"
+        """Mock function"""
         pass
 
     def runTest(self):
@@ -55,5 +55,3 @@ class Adventure(BaseAdventure):
         result = unittest.TextTestRunner().run(suite)
         if not result.wasSuccessful():
             raise AdventureVerificationError()
-
-

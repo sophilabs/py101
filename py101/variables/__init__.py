@@ -13,7 +13,7 @@ from story.translation import gettext as _
 
 class TestOutput(unittest.TestCase):
     "Introduction Adventure test"
-    def __init__(self, candidate_code, file_name = '<inline>'):
+    def __init__(self, candidate_code, file_name='<inline>'):
         """Init the test"""
         super(TestOutput, self).__init__()
         self.candidate_code = candidate_code
@@ -32,12 +32,24 @@ class TestOutput(unittest.TestCase):
 
         code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
 
-        self.assertIn('myinteger', code.co_names, 'Should have defined myinteger variable')
-        self.assertIn('mystring', code.co_names, 'Should have defined mystring variable')
+        self.assertIn('myinteger',
+                      code.co_names,
+                      'Should have defined myinteger variable'
+                      )
+        self.assertIn('mystring',
+                      code.co_names,
+                      'Should have defined mystring variable'
+                      )
         exec(code)
-        lines = [line.lower().strip() for line in self.__mockstdout.getvalue().split('\n')]
+        lines = [
+            line.lower().strip()
+            for line in self.__mockstdout.getvalue().split('\n')
+        ]
         self.assertEqual(3, len(lines), 'Should have printed two lines')
-        self.assertEqual(['4', 'python string here',  ''], lines, 'Should have same output')
+        self.assertEqual(['4', 'python string here',  ''],
+                         lines,
+                         'Should have same output'
+                         )
 
 
 class Adventure(BaseAdventure):

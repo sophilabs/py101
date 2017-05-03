@@ -15,7 +15,9 @@ from story.translation import gettext as _
 class TestOutput(unittest.TestCase):
     """Adventure test"""
 
-    expected_output = '\n'.join([str(element) for element in range(2, 101, 2)]) + '\n'
+    expected_output = '\n'.join([
+        str(element) for element in range(2, 101, 2)
+        ]) + '\n'
 
     def __init__(self, candidate_code, file_name='<inline>'):
         """Init the test"""
@@ -48,7 +50,11 @@ class TestOutput(unittest.TestCase):
             if isinstance(node, ast.Call)
         ])
 
-        self.assertTrue(len(defined_functions & called_functions) > 0, "Should call at least one defined function")
+        self.assertGreater(
+            len(defined_functions & called_functions),
+            0,
+            "Should call at least one defined function"
+        )
 
         code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
         exec(code)

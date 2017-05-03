@@ -32,7 +32,9 @@ class TestOutput(unittest.TestCase):
 
         code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
 
-        self.assertIn('languages', code.co_names, 'Should have defined languages variable')
+        self.assertIn('languages',
+                      code.co_names,
+                      'Should have defined languages variable')
         exec(code)
         lines = self.__mockstdout.getvalue().split('\n')
         self.assertEqual([str(["ADA", "Pascal", "Fortran", "Smalltalk"]), ''],

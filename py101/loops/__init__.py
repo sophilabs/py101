@@ -20,7 +20,6 @@ class TestOutput(unittest.TestCase):
         ['']
     )
 
-
     def __init__(self, candidate_code, file_name='<inline>'):
         """Init the test"""
         super(TestOutput, self).__init__()
@@ -47,7 +46,9 @@ class TestOutput(unittest.TestCase):
             for node in ast.walk(body)
             if isinstance(node, ast.If)
         ]
-        self.assertGreater(len(if_statements), 0, "Should have at least on if statement")
+        self.assertGreater(len(if_statements),
+                           0,
+                           "Should have at least on if statement")
 
         self.assertMultiLineEqual(self.correct_output,
                                   self.__mockstdout.getvalue(),

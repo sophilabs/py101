@@ -32,7 +32,10 @@ else:
         super(TestOutput, self).__init__()
         self.candidate_code = candidate_code
         self.file_name = file_name
-        self.inmutable_code = ast.parse(self.inmutable_code_str, file_name, 'exec')
+        self.inmutable_code = ast.parse(self.inmutable_code_str,
+                                        file_name,
+                                        'exec'
+                                        )
 
     def setUp(self):
         self.__old_stdout = sys.stdout
@@ -50,14 +53,14 @@ else:
         # Looks if the code is the same as the provided code.
         body_dump = ast.dump(body)
         for node in self.inmutable_code.body:
-            self.assertTrue(body_dump.find(ast.dump(node)) >= 0, "Provided code should not be modified")
+            self.assertTrue(body_dump.find(ast.dump(node)) >= 0,
+                            "Provided code should not be modified")
 
         code = compile(self.candidate_code, self.file_name, 'exec')
         exec(code)
         self.assertMultiLineEqual('1\n2\n3\n',
                                   self.__mockstdout.getvalue(),
                                   'Output is not correct')
-
 
 
 class Adventure(BaseAdventure):

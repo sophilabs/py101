@@ -17,6 +17,7 @@ class AdventureData(object):
         self.module = test_module
         self.good_solution = good_solution
 
+
 adventures = [
     AdventureData(
         py101.introduction,
@@ -24,11 +25,15 @@ adventures = [
     ),
     AdventureData(
         py101.variables,
-        """myinteger = 4; mystring = 'Python String Here'; print(myinteger); print(mystring)"""
+        """myinteger = 4;
+mystring = 'Python String Here';
+print(myinteger);
+print(mystring)"""
     ),
     AdventureData(
         py101.lists,
-        """languages = ["ADA", "Pascal", "Fortran", "Smalltalk"]; print(languages)"""
+        """languages = ["ADA", "Pascal", "Fortran", "Smalltalk"];
+print(languages)"""
     ),
     AdventureData(
         py101.operators,
@@ -36,7 +41,8 @@ adventures = [
     ),
     AdventureData(
         py101.formatting,
-        """s = 'Talk is {}. Show me the {}.'.format('cheap', 'code'); print(s)"""
+        """s = 'Talk is {}. Show me the {}.'.format('cheap', 'code');
+print(s)"""
     ),
     AdventureData(
         py101.strings,
@@ -87,7 +93,10 @@ class TestStory(unittest.TestCase):
         self.assertEqual(py101.Story().name, 'py101', "name should be py101")
 
     def test_content(self):
-        story_adventure_classes = [adventure.__class__ for adventure in py101.Story().adventures]
+        story_adventure_classes = [
+            adventure.__class__
+            for adventure in py101.Story().adventures
+        ]
 
         for adventure in adventures:
             self.assertIn(adventure.module.Adventure, story_adventure_classes)
