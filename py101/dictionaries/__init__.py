@@ -31,10 +31,17 @@ class TestOutput(unittest.TestCase):
     def runTest(self):
         """Makes a simple test of the output"""
 
-        # code = compile(self.candidate_code, self.file_name, 'exec',
-        # optimize=0)
-        # exec(code)
-        self.fail("Test not implemented")
+
+        code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
+
+        self.assertIn('print_only_even_keys',
+                      code.co_names,
+                      'Should have the print_only_even_keys function defined')
+        eval(code)
+
+        self.assertMultiLineEqual("Alfred\n",
+                                  self.__mockstdout.getvalue(),
+                                  "Should have the same output")
 
 
 class Adventure(BaseAdventure):
