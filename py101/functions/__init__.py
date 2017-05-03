@@ -7,12 +7,15 @@ import codecs
 import io
 import sys
 import unittest
+import ast
 from story.adventures import AdventureVerificationError, BaseAdventure
 from story.translation import gettext as _
 
 
 class TestOutput(unittest.TestCase):
     """Adventure test"""
+
+    expected_output = '\n'.join([str(element) for element in range(2, 101, 2)]) + '\n'
 
     def __init__(self, candidate_code, file_name='<inline>'):
         """Init the test"""
@@ -31,9 +34,29 @@ class TestOutput(unittest.TestCase):
     def runTest(self):
         """Makes a simple test of the output"""
 
-        #code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
-        #exec(code)
-        self.fail("Test not implemented")
+        body = ast.parse(self.candidate_code, self.file_name, 'exec')
+
+        defined_functions = set([
+            node.name
+            for node in ast.walk(body)
+            if isinstance(node, ast.FunctionDef)
+        ])
+
+        called_functions = set([
+            node.func.id
+            for node in ast.walk(body)
+            if isinstance(node, ast.Call)
+        ])
+
+        self.assertTrue(len(defined_functions & called_functions) > 0, "Should call at least one defined function")
+
+        code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
+        exec(code)
+
+        self.assertMultiLineEqual(self.expected_output,
+                                  self.__mockstdout.getvalue(),
+                                  "Output should match expected output"
+                                  )
 
 
 class Adventure(BaseAdventure):

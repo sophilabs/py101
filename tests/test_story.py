@@ -8,6 +8,7 @@ import py101.formatting
 import py101.strings
 import py101.conditions
 import py101.loops
+import py101.functions
 import unittest
 
 
@@ -69,6 +70,15 @@ else:
         """for number in range(100):
         if number % 2 == 1: print(number)"""
     ),
+    AdventureData(
+        py101.functions,
+        """
+def print_even(upper_bound):
+    for number in range(upper_bound+1):
+        if number % 2 == 0 and number > 1:
+            print(number)
+print_even(100)"""
+    )
 ]
 
 
