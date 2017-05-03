@@ -33,6 +33,7 @@ class TestOutput(unittest.TestCase):
     def runTest(self):
         """Makes a simple test of the output"""
 
+        # TODO check for class definition, and check if method was called
         code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
         exec(code)
         self.assertMultiLineEqual(self.expected_output,
