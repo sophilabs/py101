@@ -14,6 +14,8 @@ from story.translation import gettext as _
 class TestOutput(unittest.TestCase):
     """Adventure test"""
 
+    expected_output = "Vehicle cost is 12000\nVehicle cost is 5999.99\n"
+
     def __init__(self, candidate_code, file_name='<inline>'):
         """Init the test"""
         super(TestOutput, self).__init__()
@@ -31,10 +33,12 @@ class TestOutput(unittest.TestCase):
     def runTest(self):
         """Makes a simple test of the output"""
 
-        # code = compile(self.candidate_code, self.file_name, 'exec',
-        # optimize=0)
-        # exec(code)
-        self.fail("Test not implemented")
+        code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
+        exec(code)
+        self.assertMultiLineEqual(self.expected_output,
+                                  self.__mockstdout.getvalue(),
+                                  "Should have same output"
+                                  )
 
 
 class Adventure(BaseAdventure):
