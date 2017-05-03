@@ -23,7 +23,7 @@ Los bucles for tienen la habilidad de iterar sobre los items de cualquier secuen
 .. sourcecode:: python
     ingredients = ['banana', 'manzana',  'mango']
     for ingredient in ingredients:
-        print('Ingrediente actual: {{0}}'.format(ingredient))
+        print('Ingrediente actual: {{}}'.format(ingredient))
 
     for some_char in 'Python':
         print(some_char)

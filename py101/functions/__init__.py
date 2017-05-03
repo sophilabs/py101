@@ -47,7 +47,7 @@ class TestOutput(unittest.TestCase):
         called_functions = set([
             node.func.id
             for node in ast.walk(body)
-            if isinstance(node, ast.Call)
+            if isinstance(node, ast.Call) and isinstance(node.func, ast.Name)
         ])
 
         self.assertGreater(
