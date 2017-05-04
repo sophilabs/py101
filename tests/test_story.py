@@ -12,132 +12,200 @@ import py101.functions
 import py101.classes
 import py101.dictionaries
 import unittest
+from story.commands import PrintCommand, SolutionCommand, SelectCommand
+from io import StringIO
+import sys
+from story.translation import activate
+from os import path
 
 
 class AdventureData(object):
-    def __init__(self, test_module, good_solution):
+    """Stores test data"""
+    def __init__(self, test_module, good_solution, en_sentinel, es_sentinel):
         self.module = test_module
         self.good_solution = good_solution
+        self.en_sentinel = en_sentinel
+        self.es_sentinel = es_sentinel
 
+
+class SelectCommandArgsMock(object):
+    """Mock for the Story select command argument"""
+    def __init__(self, name):
+        self.name = name
+
+
+class MockStdout(StringIO):
+    def __enter__(self):
+        self.__old_stdout = sys.stdout
+        sys.stdout = self
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        sys.stdout = self.__old_stdout
+        self.close()
+
+
+def get_solution_path(solution_name):
+    return path.join(path.dirname(__file__), 'solutions', solution_name)
 
 adventures = [
     AdventureData(
         py101.introduction,
-        """print('Hello World')"""
+        get_solution_path('introduction.py'),
+        'introduction',
+        'introducción'
     ),
     AdventureData(
         py101.variables,
-        """myinteger = 4;
-mystring = 'Python String Here';
-print(myinteger);
-print(mystring)"""
+        get_solution_path('variables.py'),
+        'variables',
+        'variables'
     ),
     AdventureData(
         py101.lists,
-        """languages = ["ADA", "Pascal", "Fortran", "Smalltalk"];
-print(languages)"""
+        get_solution_path('lists.py'),
+        'lists',
+        'listas'
     ),
     AdventureData(
         py101.operators,
-        """print('ka'*10)"""
+        get_solution_path('operators.py'),
+        'operators',
+        'operadores'
     ),
     AdventureData(
         py101.formatting,
-        """s = 'Talk is {}. Show me the {}.'.format('cheap', 'code');
-print(s)"""
+        get_solution_path('formatting.py'),
+        'formatting',
+        'formateo'
     ),
     AdventureData(
         py101.strings,
-        """mystring = 'This Is MY string'
-print(len(mystring))
-print(mystring.upper())
-print(mystring.lower())
-print(mystring.split(' '))
-"""
+        get_solution_path('strings.py'),
+        'strings',
+        'cadenas'
     ),
     AdventureData(
         py101.conditions,
-        """# change this code
-first_number = 20
-second_number = 22
-
-# don't change this code
-if first_number > 15:
-    print("1")
-    if second_number > 15:
-        print("2")
-
-if first_number < second_number:
-    print("3")
-else:
-    print("Error")
-"""
+        get_solution_path('conditions.py'),
+        'conditions',
+        'condiciones'
     ),
     AdventureData(
         py101.loops,
-        """for number in range(100):
-        if number % 2 == 1: print(number)"""
+        get_solution_path('loops.py'),
+        'loops',
+        'bucles'
     ),
     AdventureData(
         py101.functions,
-        """
-def print_even(upper_bound):
-    for number in range(upper_bound+1):
-        if number % 2 == 0 and number > 1:
-            print(number)
-print_even(100)"""
+        get_solution_path('functions.py'),
+        'functions',
+        'funciones'
     ),
     AdventureData(
         py101.classes,
-        """
-class Vehicle:
-    def __init__(self, cost):
-        self.cost = cost
-
-    def description(self):
-        return "Vehicle cost is {}".format(self.cost)
-
-car1 = Vehicle(12000)
-car2 = Vehicle(5999.99)
-
-print(car1.description())
-print(car2.description())"""
+        get_solution_path('classes.py'),
+        'classes',
+        'clases'
     ),
     AdventureData(
         py101.dictionaries,
-        """def print_only_even_keys(some_dict):
-    for key in some_dict:
-        if some_dict[key] % 2 == 0:
-            print(key)
-
-print_only_even_keys({ 'Alfred': 28, 'Mary': 29 })
-print_only_even_keys({ 'Alfred': 31, 'Mary': 29 })
-"""
+        get_solution_path('dictionaries.py'),
+        'dictionaries',
+        'diccionarios'
     )
 ]
+
+
+def get_adventure_shortname(adventure):
+    return adventure.module.__name__.split('.')[-1]
 
 
 class TestStory(unittest.TestCase):
     def test_name(self):
         self.assertEqual(py101.Story().name, 'py101', "name should be py101")
 
-    def test_content(self):
+    def test_required_commands(self):
+        story = py101.Story()
+        all_command_classes = [command.__class__ for command in story.commands]
+
+        self.assertIn(PrintCommand,
+                      all_command_classes,
+                      "Story should have a print command")
+        self.assertIn(SolutionCommand,
+                      all_command_classes,
+                      "Story should have a solution command")
+        self.assertIn(SelectCommand,
+                      all_command_classes,
+                      "Story should have a select command")
+
+
+class TestAdventures(unittest.TestCase):
+
+    @staticmethod
+    def get_command(story, command_class):
+        return [
+            command
+            for command in story.commands
+            if isinstance(command, command_class)
+        ][0]
+
+    def setUp(self):
+        self.story = py101.Story()
+        self.print_command = self.get_command(self.story, PrintCommand)
+        self.solution_command = self.get_command(self.story, SolutionCommand)
+        self.select_command = self.get_command(self.story, SelectCommand)
+
+    def test_is_included(self):
         story_adventure_classes = [
             adventure.__class__
             for adventure in py101.Story().adventures
         ]
-
         for adventure in adventures:
-            self.assertIn(adventure.module.Adventure, story_adventure_classes)
+            with self.subTest(adventure=get_adventure_shortname(adventure)):
+                self.assertIn(adventure.module.Adventure,
+                              story_adventure_classes,
+                              "Adventure should be in the story adventures")
 
+    def test_format_doesnt_break(self):
+        for adventure in adventures:
+            with self.subTest(adventure=get_adventure_shortname(adventure)):
+                args = SelectCommandArgsMock(
+                    get_adventure_shortname(adventure)
+                )
 
-class TestAdventures(unittest.TestCase):
+                self.select_command.handle(args)
+
+                with MockStdout() as mocked_stdout:
+                    activate('en')
+                    self.print_command.handle({})
+                    self.assertIn(
+                        adventure.en_sentinel,
+                        mocked_stdout.getvalue().lower(),
+                        "The output should have the correct sentinel")
+
+                    self.solution_command.handle({})
+
+                with MockStdout() as mocked_stdout:
+                    activate('es')
+                    self.print_command.handle({})
+                    self.solution_command.handle({})
+                    self.assertIn(
+                        adventure.es_sentinel,
+                        mocked_stdout.getvalue().lower(),
+                        "The output should have the correct sentinel")
+
     def test_solution(self):
         for adventure in adventures:
-            with self.subTest(adventure=adventure.module.__name__):
-                test = adventure.module.TestOutput(adventure.good_solution)
-                test.setUp()
-                try:
-                    test.runTest()
-                finally:
-                    test.tearDown()
+            with self.subTest(adventure=get_adventure_shortname(adventure)):
+                with open(adventure.good_solution) as code_file:
+                    test = adventure.module.TestOutput(
+                        code_file.read(),
+                        adventure.good_solution
+                    )
+                    test.setUp()
+                    try:
+                        test.runTest()
+                    finally:
+                        test.tearDown()
