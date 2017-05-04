@@ -63,3 +63,8 @@ target/
 
 # Idea (PyCharms and Idea based IDEs)
 .idea/
+
+# Local test files
+test.py
+requirements_local.pip
+
