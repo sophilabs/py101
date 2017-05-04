@@ -1,15 +1,11 @@
 Modules
------------
+-------
 
 Python has a way to put definitions in a file and use them in another script.
 Such a file is called a module. Definitions from a module can be imported into
-other modules or into the main program file.
-
-A module is a file containing Python definitions and statements. The file name
-is the module name with the suffix .py appended. Within a module, the module’s
-name (as a string) is available as the value of the global variable __name__.
-For instance, supposing there is file called mymodule.py in the current
-directory with the following contents:
+other modules or into the main program file. The file name is the module
+name with the suffix .py appended. For instance, supposing there is file
+called mymodule.py in the current directory with the following contents:
 
 .. sourcecode:: python
 
@@ -45,7 +41,7 @@ built in, either for efficiency or to provide access to operating system
 primitives such as system call.
 
 Two very important functions come in handy when exploring modules in
-Python: the "dir"and "help" functions. One can look for which functions are
+Python: the "dir" and "help" functions. One can look for which functions are
 implemented in each module by using the "dir" function. If help is needed,
 then the "help" function may be used.
 
@@ -74,5 +70,5 @@ Challenge
 Create a module called "numbers" that defines a tangent() function that
 computes the tangent using the functions "sin" and "cos" from the standard math
 library, and then a program that prints the value of tangent(1) from the
-numbers library. The program should print one line "1.557407724654902"
+numbers module. The program should print one line "1.557407724654902"
 
