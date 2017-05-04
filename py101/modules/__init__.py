@@ -38,8 +38,8 @@ class TestOutput(unittest.TestCase):
             node
             for node in ast.walk(body)
             if isinstance(node, ast.Import) and
-               len(node.names) > 0 and
-               len([name for name in node.names if name.name == 'numbers']) > 0
+            len(node.names) > 0 and
+            len([name for name in node.names if name.name == 'numbers']) > 0
         ]
 
         self.assertGreater(
@@ -52,10 +52,10 @@ class TestOutput(unittest.TestCase):
             node
             for node in ast.walk(body)
             if isinstance(node, ast.Call) and
-               isinstance(node.func, ast.Attribute) and
-               isinstance(node.func.value, ast.Name) and
-               node.func.value.id == 'numbers' and
-               node.func.attr == 'tangent'
+            isinstance(node.func, ast.Attribute) and
+            isinstance(node.func.value, ast.Name) and
+            node.func.value.id == 'numbers' and
+            node.func.attr == 'tangent'
         ]
 
         self.assertGreater(
