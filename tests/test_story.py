@@ -11,6 +11,7 @@ import py101.loops
 import py101.functions
 import py101.classes
 import py101.dictionaries
+import py101.modules
 import unittest
 from story.commands import PrintCommand, SolutionCommand, SelectCommand
 from io import StringIO
@@ -115,6 +116,12 @@ adventures = [
         get_solution_path('dictionaries.py'),
         'dictionaries',
         'diccionarios'
+    ),
+    AdventureData(
+        py101.modules,
+        get_solution_path('modules.py'),
+        'modules',
+        'módulos'
     )
 ]
 

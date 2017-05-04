@@ -9,6 +9,7 @@ import sys
 import unittest
 from story.adventures import AdventureVerificationError, BaseAdventure
 from story.translation import gettext as _
+import ast
 
 
 class TestOutput(unittest.TestCase):
@@ -31,10 +32,54 @@ class TestOutput(unittest.TestCase):
     def runTest(self):
         """Makes a simple test of the output"""
 
-        # code = compile(self.candidate_code, self.file_name, 'exec',
-        # optimize=0)
-        # exec(code)
-        self.fail("Test not implemented")
+        body = ast.parse(self.candidate_code, self.file_name, 'exec')
+
+        import_statements = [
+            node
+            for node in ast.walk(body)
+            if isinstance(node, ast.Import) and
+               len(node.names) > 0 and
+               len([name for name in node.names if name.name == 'numbers']) > 0
+        ]
+
+        self.assertGreater(
+            len(import_statements),
+            0,
+            "It should be at least one import statement for numbers"
+        )
+
+        call_statements = [
+            node
+            for node in ast.walk(body)
+            if isinstance(node, ast.Call) and
+               isinstance(node.func, ast.Attribute) and
+               isinstance(node.func.value, ast.Name) and
+               node.func.value.id == 'numbers' and
+               node.func.attr == 'tangent'
+        ]
+
+        self.assertGreater(
+            len(call_statements),
+            0,
+            "It should be at least one call statement for numbers.tangent"
+        )
+
+        code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
+        exec(code)
+
+        self.assertEqual(
+            2,
+            len(self.__mockstdout.getvalue().split('\n')),
+            "Should have output one line"
+        )
+
+        returned_value = float(self.__mockstdout.getvalue())
+
+        self.assertAlmostEqual(
+            returned_value,
+            1.5574077246549025,
+            4,
+            "The output number should be near 1.557")
 
 
 class Adventure(BaseAdventure):
