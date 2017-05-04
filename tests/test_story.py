@@ -48,6 +48,7 @@ class MockStdout(StringIO):
 def get_solution_path(solution_name):
     return path.join(path.dirname(__file__), 'solutions', solution_name)
 
+
 adventures = [
     AdventureData(
         py101.introduction,

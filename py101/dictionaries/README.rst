@@ -7,7 +7,7 @@ using a key, which is any type of object, for example strings
 instead of using its index to address it.
 
 For example, a database of phone numbers could be stored using a dictionary
-like this:
+like this: {}
 
 .. sourcecode:: python
 
@@ -35,7 +35,7 @@ Dictionaries can be iterated over. To iterate over the dictionary keys, use
 .. sourcecode:: python
 
     for name in ages:
-        print("Age of {{}} is {{}}".format(name, ages[name]))
+        print("Age of {} is {}".format(name, ages[name]))
 
 The previous example will print something similar to
 

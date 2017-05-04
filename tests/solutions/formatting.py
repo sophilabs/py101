@@ -1,2 +1,2 @@
-s = 'Talk is {}. Show me the {}.'.format('cheap', 'code');
+s = 'Talk is {}. Show me the {}.'.format('cheap', 'code')
 print(s)

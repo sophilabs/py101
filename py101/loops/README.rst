@@ -23,7 +23,7 @@ The for loops have the ability to iterate over the items of any sequence, such a
 .. sourcecode:: python
     ingredients = ['banana', 'apple',  'mango']
     for ingredient in ingredients:
-        print('Current ingredient: {{}}'.format(ingredient))
+        print('Current ingredient: {}'.format(ingredient))
 
     for some_char in 'Python':
         print(some_char)

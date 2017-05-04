@@ -14,7 +14,7 @@ Functions may also receive arguments (variables passed from the caller to the fu
 .. sourcecode:: python
 
     def say_hello_with_name(name):
-        print("Hello {{}}".format(name))
+        print("Hello {}".format(name))
         print("How are you?")
 
 Also they may return a value to the caller, using "return" keyword. For example:
@@ -45,7 +45,7 @@ Defining a function only gives it a name, specifies the parameters that are to b
 
     result = make_division(2343, 22)
     say_hello_with_name("Alex")
-    print("Result is {{}}".format(result))
+    print("Result is {}".format(result))
 
 Challenge
 ---------

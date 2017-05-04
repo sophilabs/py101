@@ -20,7 +20,7 @@ Python provides the "if" statements, consisting of a boolean expression followed
     if y == 0:
         print('divisor y should not be zero')
     else:
-        print('Result is {{}}'.format(x/y))
+        print('Result is {}'.format(x/y))
 
 If statements can be nested allowing more complex logic to be executed:
 

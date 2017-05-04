@@ -1,2 +1,2 @@
-languages = ["ADA", "Pascal", "Fortran", "Smalltalk"];
+languages = ["ADA", "Pascal", "Fortran", "Smalltalk"]
 print(languages)

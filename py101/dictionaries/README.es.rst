@@ -35,7 +35,7 @@ diccionario se usa la siguiente sintaxis.
 .. sourcecode:: python
 
     for name in ages:
-        print("Edad de {{}} es {{}}".format(name, ages[name]))
+        print("Edad de {} es {}".format(name, ages[name]))
 
 El ejemplo va a imprimir algo similar a:
 

@@ -5,6 +5,7 @@ class Vehicle:
     def description(self):
         return "Vehicle cost is {}".format(self.cost)
 
+
 car1 = Vehicle(12000)
 car2 = Vehicle(5999.99)
 

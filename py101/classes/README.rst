@@ -15,7 +15,7 @@ A basic class would look something like this:
             self.name = name
 
         def print_name(self):
-            print("Hello {{}}".format(self.name))
+            print("Hello {}".format(self.name))
 
 The special "__init__" function is called when a Person object is created.
 It can define and assigne variables inside a created Person object. For
@@ -73,7 +73,7 @@ program that prints the lines "Vechicle cost is 12000" and "Vechicle cost is
             self.cost = cost
 
         def description(self):
-            return "Vehicle cost is {{}}".format(self.cost)
+            return "Vehicle cost is {}".format(self.cost)
 
     # your code goes here
 

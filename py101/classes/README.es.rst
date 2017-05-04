@@ -15,7 +15,7 @@ Una clase básica se ve como sigue:
             self.name = name
 
         def print_name(self):
-            print("Hola {{}}".format(self.name))
+            print("Hola {}".format(self.name))
 
 La función especial "__init__" se llama cuando se crea un objeto Persona.
 Pueded definir y asignar variables que se usan dentro del objeto Persona
@@ -75,7 +75,7 @@ un programa que imprima las líneas "Vehicle cost is 12000" y "Vechicle cost is
             self.cost = cost
 
         def description(self):
-            return "Vehicle cost is {{}}".format(self.cost)
+            return "Vehicle cost is {}".format(self.cost)
 
     # Tu código va aquí
 

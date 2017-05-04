@@ -14,7 +14,7 @@ Las funciones también pueden recibir argumentos: variables que se pasan desde e
 .. sourcecode:: python
 
     def decir_hola_con_nombre(name):
-        print("Hola {{}}".format(name))
+        print("Hola {}".format(name))
         print("¿Cómo estás?")
 
 Las funciones también pueden retornar un valor al invocador, usando la palabra clave "return", por ejemplo:
@@ -44,7 +44,7 @@ Definir una función solo le da un nombre, especifica los parámetros que se van
 
     result = hacer_division(2343, 22)
     decir_hola_con_nombre("Alex")
-    print("Resultado es {{}}".format(result))
+    print("Resultado es {}".format(result))
 
 Desafío
 ---------

@@ -31,7 +31,6 @@ class TestOutput(unittest.TestCase):
     def runTest(self):
         """Makes a simple test of the output"""
 
-
         code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
 
         self.assertIn('print_only_even_keys',
