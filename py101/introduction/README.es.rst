@@ -8,7 +8,7 @@ Python fomenta a que los programadores escriban código sin "boilerplate" prepar
 Hola Mundo
 -----------
 
-Escribe un programa que imprima el texto "Hola Mundo" en la salida estándar de la consola.
+Escribe un programa que imprima el texto "Hello World" en la salida estándar de la consola.
 
 Sugerencias
 ------------

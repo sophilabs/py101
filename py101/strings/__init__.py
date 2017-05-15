@@ -1,5 +1,5 @@
 """"
-Introduction Adventure
+Strings Adventure
 
 Author: Ignacio Avas (iavas@sophilabs.com)
 """
@@ -12,7 +12,16 @@ from story.translation import gettext as _
 
 
 class TestOutput(unittest.TestCase):
-    """Introduction Adventure test"""
+    """Adventure test"""
+
+    expected_output = [
+        "17",
+        "THIS IS MY STRING",
+        "this is my string",
+        "['This', 'Is', 'MY', 'string']",
+        ""
+    ]
+
     def __init__(self, candidate_code, file_name='<inline>'):
         """Init the test"""
         super(TestOutput, self).__init__()
@@ -27,24 +36,35 @@ class TestOutput(unittest.TestCase):
         sys.stdout = self.__old_stdout
         self.__mockstdout.close()
 
-    @staticmethod
-    def mock_print(stringy):
-        """Mock function"""
-        pass
-
     def runTest(self):
-        "Makes a simple test of the output"
+        """Makes a simple test of the output"""
+
         code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
+
+        self.assertIn('len',
+                      code.co_names,
+                      'Should have called the len function')
+        self.assertIn('split',
+                      code.co_names,
+                      'Should have called the split function')
+        self.assertIn('upper',
+                      code.co_names,
+                      'Should have called the upper function')
+        self.assertIn('lower',
+                      code.co_names,
+                      'Should have called the lower function')
         exec(code)
-        self.assertEqual(
-            self.__mockstdout.getvalue().lower().strip(),
-            'hello world',
-            "Should have printed 'Hello World'"
-        )
+        lines = self.__mockstdout.getvalue().split('\n')
+        self.assertEqual(self.expected_output,
+                         lines,
+                         'Should have same output'
+                         )
 
 
 class Adventure(BaseAdventure):
-    title = _('Introduction')
+    """String Adventure"""
+
+    title = _('String Operations')
 
     @classmethod
     def test(cls, sourcefile):

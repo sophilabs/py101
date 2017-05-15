@@ -1,5 +1,5 @@
 """"
-Introduction Adventure
+Operators Adventure
 
 Author: Ignacio Avas (iavas@sophilabs.com)
 """
@@ -9,10 +9,11 @@ import sys
 import unittest
 from story.adventures import AdventureVerificationError, BaseAdventure
 from story.translation import gettext as _
+import ast
 
 
 class TestOutput(unittest.TestCase):
-    """Introduction Adventure test"""
+    """Variables Adventure test"""
     def __init__(self, candidate_code, file_name='<inline>'):
         """Init the test"""
         super(TestOutput, self).__init__()
@@ -27,24 +28,28 @@ class TestOutput(unittest.TestCase):
         sys.stdout = self.__old_stdout
         self.__mockstdout.close()
 
-    @staticmethod
-    def mock_print(stringy):
-        """Mock function"""
-        pass
-
     def runTest(self):
-        "Makes a simple test of the output"
-        code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
+        """Makes a simple test of the output"""
+
+        body = ast.parse(self.candidate_code, self.file_name, 'exec')
+        code = compile(self.candidate_code, self.file_name, 'exec')
+
+        mult_instructions = [
+            node for node in ast.walk(body)
+            if isinstance(node, ast.Mult)
+        ]
+        self.assertGreater(len(mult_instructions),
+                           0,
+                           "It should have at least one duplication"
+                           )
         exec(code)
-        self.assertEqual(
-            self.__mockstdout.getvalue().lower().strip(),
-            'hello world',
-            "Should have printed 'Hello World'"
-        )
+        self.assertMultiLineEqual('ka'*10+'\n',
+                                  self.__mockstdout.getvalue(),
+                                  "Should have printed ka 10 times")
 
 
 class Adventure(BaseAdventure):
-    title = _('Introduction')
+    title = _('Operators')
 
     @classmethod
     def test(cls, sourcefile):

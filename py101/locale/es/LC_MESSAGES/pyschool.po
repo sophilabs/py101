@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-26 16:25-0300\n"
+"POT-Creation-Date: 2017-05-02 12:48-0300\n"
 "PO-Revision-Date: 2017-04-26 15:15-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -18,11 +18,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.4.0\n"
 
-#: py101/__init__.py:15
+#: py101/__init__.py:16
 msgid "Learn Python essentials using the command line"
 msgstr "Aprende lo esencial de Python usando la línea de comando"
 
-#: py101/introduction/__init__.py:48
+#: py101/classes/__init__.py:41
+msgid "Classes"
+msgstr "Clases"
+
+#: py101/conditions/__init__.py:41
+msgid "Conditions"
+msgstr "Condiciones"
+
+#: py101/dictionaries/__init__.py:41
+msgid "Dictionaries"
+msgstr "Diccionarios"
+
+#: py101/formatting/__init__.py:56
+msgid "String Formatting"
+msgstr "Formateo de Cadenas"
+
+#: py101/functions/__init__.py:42
+msgid "Functions"
+msgstr "Funciones"
+
+#: py101/introduction/__init__.py:47
 msgid "Introduction"
 msgstr "Introducción"
+
+#: py101/lists/__init__.py:46
+msgid "Lists"
+msgstr "Listas"
+
+#: py101/loops/__init__.py:41
+msgid "Looping"
+msgstr "Bucles"
+
+#: py101/modules/__init__.py:41
+msgid "Modules"
+msgstr "Módulos"
+
+#: py101/operators/__init__.py:45
+msgid "Operators"
+msgstr "Operadores"
+
+#: py101/strings/__init__.py:42
+msgid "String Operations"
+msgstr "Operaciones con cadenas"
+
+#: py101/variables/__init__.py:45
+msgid "Variables"
+msgstr "Variables"
 

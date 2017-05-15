@@ -1,5 +1,5 @@
 """"
-Introduction Adventure
+Classes Adventure
 
 Author: Ignacio Avas (iavas@sophilabs.com)
 """
@@ -12,7 +12,10 @@ from story.translation import gettext as _
 
 
 class TestOutput(unittest.TestCase):
-    """Introduction Adventure test"""
+    """Adventure test"""
+
+    expected_output = "Vehicle cost is 12000\nVehicle cost is 5999.99\n"
+
     def __init__(self, candidate_code, file_name='<inline>'):
         """Init the test"""
         super(TestOutput, self).__init__()
@@ -27,24 +30,21 @@ class TestOutput(unittest.TestCase):
         sys.stdout = self.__old_stdout
         self.__mockstdout.close()
 
-    @staticmethod
-    def mock_print(stringy):
-        """Mock function"""
-        pass
-
     def runTest(self):
-        "Makes a simple test of the output"
+        """Makes a simple test of the output"""
+
+        # TODO check for class definition, and check if method was called
         code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
         exec(code)
-        self.assertEqual(
-            self.__mockstdout.getvalue().lower().strip(),
-            'hello world',
-            "Should have printed 'Hello World'"
-        )
+        self.assertMultiLineEqual(self.expected_output,
+                                  self.__mockstdout.getvalue(),
+                                  "Should have same output"
+                                  )
 
 
 class Adventure(BaseAdventure):
-    title = _('Introduction')
+    """Classes Adventure"""
+    title = _('Classes')
 
     @classmethod
     def test(cls, sourcefile):

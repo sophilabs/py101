@@ -1,5 +1,5 @@
 """"
-Introduction Adventure
+Functions Adventure
 
 Author: Ignacio Avas (iavas@sophilabs.com)
 """
@@ -7,12 +7,18 @@ import codecs
 import io
 import sys
 import unittest
+import ast
 from story.adventures import AdventureVerificationError, BaseAdventure
 from story.translation import gettext as _
 
 
 class TestOutput(unittest.TestCase):
-    """Introduction Adventure test"""
+    """Adventure test"""
+
+    expected_output = '\n'.join([
+        str(element) for element in range(2, 101, 2)
+        ]) + '\n'
+
     def __init__(self, candidate_code, file_name='<inline>'):
         """Init the test"""
         super(TestOutput, self).__init__()
@@ -27,24 +33,42 @@ class TestOutput(unittest.TestCase):
         sys.stdout = self.__old_stdout
         self.__mockstdout.close()
 
-    @staticmethod
-    def mock_print(stringy):
-        """Mock function"""
-        pass
-
     def runTest(self):
-        "Makes a simple test of the output"
+        """Makes a simple test of the output"""
+
+        body = ast.parse(self.candidate_code, self.file_name, 'exec')
+
+        defined_functions = set([
+            node.name
+            for node in ast.walk(body)
+            if isinstance(node, ast.FunctionDef)
+        ])
+
+        called_functions = set([
+            node.func.id
+            for node in ast.walk(body)
+            if isinstance(node, ast.Call) and isinstance(node.func, ast.Name)
+        ])
+
+        self.assertGreater(
+            len(defined_functions & called_functions),
+            0,
+            "Should call at least one defined function"
+        )
+
         code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
         exec(code)
-        self.assertEqual(
-            self.__mockstdout.getvalue().lower().strip(),
-            'hello world',
-            "Should have printed 'Hello World'"
-        )
+
+        self.assertMultiLineEqual(self.expected_output,
+                                  self.__mockstdout.getvalue(),
+                                  "Output should match expected output"
+                                  )
 
 
 class Adventure(BaseAdventure):
-    title = _('Introduction')
+    """Functions Adventure"""
+
+    title = _('Functions')
 
     @classmethod
     def test(cls, sourcefile):

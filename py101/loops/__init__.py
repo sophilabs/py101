@@ -1,5 +1,5 @@
 """"
-Introduction Adventure
+Loopsgit gi Adventure
 
 Author: Ignacio Avas (iavas@sophilabs.com)
 """
@@ -7,12 +7,19 @@ import codecs
 import io
 import sys
 import unittest
+import ast
 from story.adventures import AdventureVerificationError, BaseAdventure
 from story.translation import gettext as _
 
 
 class TestOutput(unittest.TestCase):
-    """Introduction Adventure test"""
+    """Adventure test"""
+
+    correct_output = '\n'.join(
+        [str(number) for number in range(1, 100, 2)] +
+        ['']
+    )
+
     def __init__(self, candidate_code, file_name='<inline>'):
         """Init the test"""
         super(TestOutput, self).__init__()
@@ -27,24 +34,30 @@ class TestOutput(unittest.TestCase):
         sys.stdout = self.__old_stdout
         self.__mockstdout.close()
 
-    @staticmethod
-    def mock_print(stringy):
-        """Mock function"""
-        pass
-
     def runTest(self):
-        "Makes a simple test of the output"
+        """Makes a simple test of the output"""
+
+        body = ast.parse(self.candidate_code, self.file_name, 'exec')
         code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
         exec(code)
-        self.assertEqual(
-            self.__mockstdout.getvalue().lower().strip(),
-            'hello world',
-            "Should have printed 'Hello World'"
-        )
+
+        if_statements = [
+            node
+            for node in ast.walk(body)
+            if isinstance(node, ast.If)
+        ]
+        self.assertGreater(len(if_statements),
+                           0,
+                           "Should have at least on if statement")
+
+        self.assertMultiLineEqual(self.correct_output,
+                                  self.__mockstdout.getvalue(),
+                                  "Output should be correct")
 
 
 class Adventure(BaseAdventure):
-    title = _('Introduction')
+    """Loops Adventure"""
+    title = _('Looping')
 
     @classmethod
     def test(cls, sourcefile):

@@ -12,7 +12,7 @@ from story.translation import gettext as _
 
 
 class TestOutput(unittest.TestCase):
-    """Introduction Adventure test"""
+    """Variables Adventure test"""
     def __init__(self, candidate_code, file_name='<inline>'):
         """Init the test"""
         super(TestOutput, self).__init__()
@@ -27,24 +27,25 @@ class TestOutput(unittest.TestCase):
         sys.stdout = self.__old_stdout
         self.__mockstdout.close()
 
-    @staticmethod
-    def mock_print(stringy):
-        """Mock function"""
-        pass
-
     def runTest(self):
-        "Makes a simple test of the output"
+        """Makes a simple test of the output"""
+
         code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
+
+        self.assertIn('languages',
+                      code.co_names,
+                      'Should have defined languages variable')
         exec(code)
-        self.assertEqual(
-            self.__mockstdout.getvalue().lower().strip(),
-            'hello world',
-            "Should have printed 'Hello World'"
-        )
+        lines = self.__mockstdout.getvalue().split('\n')
+        self.assertEqual([str(["ADA", "Pascal", "Fortran", "Smalltalk"]), ''],
+                         lines,
+                         'Should have same output'
+                         )
 
 
 class Adventure(BaseAdventure):
-    title = _('Introduction')
+    """Lists Adventure"""
+    title = _('Lists')
 
     @classmethod
     def test(cls, sourcefile):

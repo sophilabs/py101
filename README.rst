@@ -19,10 +19,20 @@ A pyschool story for learning Python Basics.
 Credits
 -------
 
+  *“The only way to learn a new programming language is by writing programs in it.”*
+
+  \― `Dennis Ritchie <https://wikipedia.org/wiki/Dennis_Ritchie>`_
+
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+Also we inspired in the following sites, which are great sources for learning Python basics:
+
+* `workshopper/javascripting <https://github.com/workshopper/javascripting>`_
+* `learnpython.org <https://www.learnpython.org>`_
+* `tutorialspoint.com <https://www.tutorialspoint.com/python>`_
 
 License
 -------

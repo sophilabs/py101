@@ -1,5 +1,5 @@
 """"
-Introduction Adventure
+Boilerplate Adventure
 
 Author: Ignacio Avas (iavas@sophilabs.com)
 """
@@ -12,7 +12,8 @@ from story.translation import gettext as _
 
 
 class TestOutput(unittest.TestCase):
-    """Introduction Adventure test"""
+    """Adventure test"""
+
     def __init__(self, candidate_code, file_name='<inline>'):
         """Init the test"""
         super(TestOutput, self).__init__()
@@ -27,24 +28,24 @@ class TestOutput(unittest.TestCase):
         sys.stdout = self.__old_stdout
         self.__mockstdout.close()
 
-    @staticmethod
-    def mock_print(stringy):
-        """Mock function"""
-        pass
-
     def runTest(self):
-        "Makes a simple test of the output"
+        """Makes a simple test of the output"""
+
         code = compile(self.candidate_code, self.file_name, 'exec', optimize=0)
-        exec(code)
-        self.assertEqual(
-            self.__mockstdout.getvalue().lower().strip(),
-            'hello world',
-            "Should have printed 'Hello World'"
-        )
+
+        self.assertIn('print_only_even_keys',
+                      code.co_names,
+                      'Should have the print_only_even_keys function defined')
+        eval(code)
+
+        self.assertMultiLineEqual("Alfred\n",
+                                  self.__mockstdout.getvalue(),
+                                  "Should have the same output")
 
 
 class Adventure(BaseAdventure):
-    title = _('Introduction')
+    """Dictionary Adventure"""
+    title = _('Dictionaries')
 
     @classmethod
     def test(cls, sourcefile):
