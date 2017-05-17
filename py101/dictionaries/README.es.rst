@@ -2,11 +2,11 @@ Diccionarios
 ------------
 
 Un diccionario es un tipo de datos similar a las listas, pero funciona
-asociando claves y valores en en vez de usar índices. Cada valor del
+asociando claves y valores en vez de usar índices. Cada valor del
 diccionario puede ser accedido usando una clave que puede ser cualquier tipo
  de objeto. Por ejemplo se pueden usar cadenas para referenciar objetos del
  diccionario. Una pequeña base de datos telefónica puede ser almacenada usando
- diccionarios de la siguiente manera
+ diccionarios de la siguiente manera.
 
 .. sourcecode:: python
 
@@ -16,7 +16,7 @@ diccionario puede ser accedido usando una clave que puede ser cualquier tipo
     directorio["Rolling"] = '9476-62781'
 
 De manera alternativa, un diccionario puede ser inicializado usando la
-siguiente notación
+siguiente notación:
 
 .. sourcecode:: python
 
@@ -30,7 +30,7 @@ Iteración
 ---------
 
 Los diccionarios permiten ser iterados. Para iterar sobre las claves del
-diccionario se usa la siguiente sintaxis.
+diccionario se usa la siguiente sintaxis:
 
 .. sourcecode:: python
 
@@ -51,7 +51,7 @@ Sin embargo, un diccionario no mantiene el orden de los elementos almacenado
 Borrado de claves
 -----------------
 
-Para borrar un índice específico usa la palabra clave "del" como se muestra
+Para borrar una clave específica usa la palabra clave "del" como se muestra
 en el siguiente ejemplo:
 
 .. sourcecode:: python
@@ -81,5 +81,3 @@ cuyos valores son números pares.
     # no modifiques este código
     print_only_even_keys({ 'Alfred': 28, 'Mary': 29 })
     print_only_even_keys({ 'Alfred': 31, 'Mary': 29 })
-
-

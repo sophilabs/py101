@@ -1,7 +1,7 @@
 Lists
 -----
 
-Python es único en la manera en la que maneja secuencias y otros objetos. Un tipo de dato usado para manejar secuencias es el tipo "list". El siguiente ejemplo muestra como crear una lista con cuatro elementos
+Python es único en la manera en la que maneja secuencias y otros objetos. Un tipo de dato usado para manejar secuencias es el tipo "list". El siguiente ejemplo muestra como crear tres listas con cuatro elementos.
 
 .. sourcecode:: python
 
@@ -9,7 +9,7 @@ Python es único en la manera en la que maneja secuencias y otros objetos. Un ti
     ingredients = [ "tomato", "bread", "cheese", "ham" ]
     quantities = [ 1, 2, 3, 4 ]
 
-Los objetos de una lista son referenciados por índice. El primer índice es 0, que almacena el primer elemento, el segundo es uno, y así sucesivamente. Para obtener los valores en listas se debe usar las llaves "[]" para obtener el valor en ese índice:
+Los objetos de una lista son referenciados por índice. El primer índice es 0, que almacena el primer elemento, el segundo es 1, y así sucesivamente. Para obtener los valores en listas se debe usar las llaves "[]" junto con el índice índice:
 
 .. sourcecode:: python
 

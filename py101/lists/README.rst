@@ -1,7 +1,7 @@
 Lists
 -----
 
-Python is unique in the way it can handle sequences of other objects. One type used to handle sequences is the "list". The following example creates a list with four elements.
+Python is unique in the way it can handle sequences of other objects. One type used to handle sequences is the "list". The following examples create lists with four elements.
 
 .. sourcecode:: python
 
