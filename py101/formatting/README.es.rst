@@ -1,7 +1,7 @@
 Formateo de Strings
 -------------------
 
-El método str.format() de la clase string puede ser utilizado para hacer substitución de variables y formateo de valores. Esto permite concatenar elementos juntos dentro de una cadena usando formateo posicional. Funciona introduciendo uno o más campos de reemplazo, definidos como pares de corchetes ({}) en uan cadena y llamando a la operación format:
+El método str.format() de la clase string puede ser utilizado para hacer substitución de variables y formateo de valores. Esto permite concatenar elementos juntos dentro de una cadena usando formateo posicional. Funciona introduciendo uno o más campos de reemplazo, definidos como pares de corchetes ({}) en una cadena y llamando a la operación format:
 
 .. sourcecode:: python
 

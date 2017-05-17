@@ -13,14 +13,14 @@ Just as many programming languages, numbers can interact by using addition (+), 
     some_division = 22 / 8  # 2.75
     remainder = 22 % 8      # 6
 
-Using two multiplication symbols allows to make an power relationship:
+Using two multiplication symbols means exponentiation:
 
 .. sourcecode:: python
 
     big_number = 2 ** 8      # 256
     small_number = 2 ** (-8) # 0.00390625
 
-Strings or lists can joined by using the plus operator:
+Strings or lists can be joined together by using the plus operator:
 
 .. sourcecode:: python
 
@@ -29,7 +29,7 @@ Strings or lists can joined by using the plus operator:
     other_numbers = [2,4,6,8,9]
     print(prime_numbers + other_numbers) # Prints [1, 3, 5, 7, 2, 4, 6, 8, 9]
 
-Both strings and lists can be duplicated to form larger sequences using the multiplication operator
+Both strings and lists can be duplicated to form larger sequences using the multiplication operator:
 
 .. sourcecode:: python
 
@@ -39,4 +39,4 @@ Both strings and lists can be duplicated to form larger sequences using the mult
 Challenge
 ---------
 
-Make a program that outputs the string 'ka' repeated 10 times using string duplication
+Make a program that outputs the string 'ka' repeated 10 times using string duplication.

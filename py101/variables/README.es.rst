@@ -8,7 +8,7 @@ Python es un lenguaje dinámicamente tipado. Esto quiere decir que las variables
     my_number = 1
     some_real_number = 3.16
 
-En el caso de las cadenas el valor está encapsulado en comillas simples o dobles. La diferencia entre los dos es que usando comillas dobles permite tener apóstrofes, que en el caso contrario terminarían el string si se usan con comillas simples.
+En el caso de las cadenas el valor está encapsulado en comillas simples o dobles. La diferencia entre los dos es que usar comillas dobles permite tener apóstrofes, que en el caso contrario terminarían el string si se usan con comillas simples.
 
 .. sourcecode:: python
 
