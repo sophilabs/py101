@@ -1,7 +1,7 @@
 Decision making
 ---------------
 
-Decision making is anticipation of conditions occurring while execution of the program and specifying actions taken according to the conditions. Decision structures evaluate multiple expressions which produce True or False. The program determine which action to take and which statements to execute, depending of the value of the expressions. Following is an example of a typical decision making structure found in most of the programming languages:
+Decision making is anticipation of conditions occurring while execution of the program and specifying actions taken according to the conditions. Decision structures evaluate multiple expressions which produce True or False. The program determines which action to take and which statements to execute, depending of the value of the expressions. Following is an example of a typical decision making structure found in most programming languages:
 
 .. sourcecode:: python
 
@@ -10,7 +10,7 @@ Decision making is anticipation of conditions occurring while execution of the p
     if age > 18:
         print('You are too old')
 
-Python provides the "if" statements, consisting of a boolean expression followed by one or more statementsIf statements can be followed by an else "else" statements executed if the top "if" condition doesn't held.
+Python provides the "if" statement, consisting of a boolean expression followed by one or more statements. "If" statements can be followed by an "else" statement executed if the top "if" condition doesn't held.
 
 .. sourcecode:: python
 
@@ -22,7 +22,7 @@ Python provides the "if" statements, consisting of a boolean expression followed
     else:
         print('Result is {}'.format(x/y))
 
-If statements can be nested allowing more complex logic to be executed:
+"If" statements can be nested allowing more complex logic to be executed:
 
 .. sourcecode:: python
 

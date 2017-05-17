@@ -1,10 +1,10 @@
 Dictonaries
 -----------
 
-A dictionary is a data type similar to lists, but works with keys and
+A dictionary is a data type similar to lists, but it works with keys and
 values instead of indexes. Each value stored in a dictionary can be accessed
-using a key, which is any type of object, for example strings
-instead of using its index to address it.
+using a key, which can any type of object (for example strings),
+instead of using a numerical index as lists do.
 
 For example, a database of phone numbers could be stored using a dictionary
 like this: {}
@@ -81,4 +81,4 @@ Modify the program below, so the "print_only_even_keys" function prints
     print_only_even_keys({ 'Alfred': 28, 'Mary': 29 })
     print_only_even_keys({ 'Alfred': 31, 'María': 29 })
 
-The program should Output "Alfred" in the first line and nothing else
+The program should Output "Alfred" in the first line and nothing else.

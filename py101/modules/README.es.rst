@@ -48,6 +48,16 @@ en un módulo. Si se necesita ayuda, se puede utilizar la función "help" que
 muestra un texto acerca de cierta función específica.
 
 
+    help(http.HTTPStatus)
+    # prints a large description if this field
+
+
+Escribiendo módulos
+-------------------
+
+Para crear un módulo propio, simplemente crea un nuevo archivo con su nombre y la
+extensión py, y luego importalo usando su nombre con el comando "import".
+
 .. sourcecode:: python
 
     import http
@@ -75,4 +85,3 @@ compute la tangente usando las funciones "sin" (seno) y "cos" (coseno) desde
 la biblioteca estándar "math", y luego un programa que imprima el valor de
 tangent(1) desde el módulo numbers. El progama debería imprimir una línea
 "1.557407724654902"
-

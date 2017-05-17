@@ -1,7 +1,7 @@
-Operations con cadenas de caracteres
+Operaciones con cadenas de caracteres
 ------------------------------------
 
-Las cadenas de caracteres son uno de los tipos más usados en Python. Son un tipo de secuenca de caracteres. Para acceder a los substring se debe usar los paréntesis rectos para indicar qué partes de la cadena se pueden obtener. Se pueden usar índices negativos para contar desde el final.
+Las cadenas de caracteres son uno de los tipos más usados en Python. Son un tipo de secuenca de caracteres. Para acceder a las subcadenas se debe usar los paréntesis rectos para indicar qué partes de la cadena se quieren obtener. Se pueden usar índices negativos para contar desde el final hacia atrás.
 
 .. sourcecode:: python
 
@@ -10,7 +10,7 @@ Las cadenas de caracteres son uno de los tipos más usados en Python. Son un tip
     print(mystring[0:4]) # Imprime Show
     print(mystring[-4:]) # Imprime code
 
-La función "len" puede ser utilizada para obtener el largo de una cadena
+La función "len" puede ser utilizada para obtener el largo de una cadena.
 
 .. sourcecode:: python
 
@@ -19,12 +19,12 @@ La función "len" puede ser utilizada para obtener el largo de una cadena
 Adicionalmente hay una variedad de funciones para transformar o consultar una cadena:
 
 
-* upper: Convierte unca cadena a mayúsculas
-* lower: Transforma todos los caracteres a minúsculas
-* startswith: Usado para saber si una cadena empieza con cierta subcadena
-* endswith: Usado para saber si un cadena termina con una subcadena específica
+* upper: Transforma todos los caracteres a MAYÚSCULAS.
+* lower: Transforma todos los caracteres a minúsculas.
+* startswith: Usado para saber si una cadena empieza con cierta subcadena.
+* endswith: Usado para saber si un cadena termina con una subcadena específica.
 * find: Busca una subcadena dentro de la cadena y retorna el índice de la primera ocurrencia, o -1 si la subcadena no fue encontrada.
-* split: Genera una lista de cadenas a partir de una cadena, separando por cierto sentinela.
+* split: Genera una lista de subcadenas a partir de una cadena, separando por otra subcadena.
 * join: Concatena una lista de cadenas usando cierta subcadena como unión.
 
 .. sourcecode:: python
@@ -56,4 +56,4 @@ Haz un programa usando funciones de cadena que imprima las siguientes líneas en
 * this is my string
 * [ 'This', 'Is', 'My', 'string' ]
 
-Debes usar la función len para imprimir la primer línea, y la función splic para imprimir la cuarta línea.
+Debes usar la función len para imprimir la primer línea, y la función split para imprimir la cuarta línea.

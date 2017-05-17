@@ -18,7 +18,7 @@ A basic class would look something like this:
             print("Hello {}".format(self.name))
 
 The special "__init__" function is called when a Person object is created.
-It can define and assigne variables inside a created Person object. For
+It can define and assign variables inside a created Person object. For
 example the class above assigns a new variable inside a Person object called
  name using the value provided to the __init__ function. The "self" parameter
  makes reference to the implicit object which was created. In other
@@ -31,10 +31,10 @@ __init__ function.
 
     myperson = Person('Alex')
 
-In the Person class "print_name" is a user defined function that can be
+In the Person class, "print_name" is a user defined function that can be
 invoked to perform custom behaviour. The difference between a function
-defined inside a class an user defined function which not, is that functions
-inside classes do have access to the individual variables, those variables
+defined inside a class and a function defined outside a class is that functions
+inside classes have access to the individual variables, those variables
 are referenced by accessing the self object.
 
 To invoke a function from an object, the following syntax can be used:
@@ -61,7 +61,7 @@ Challenge
 ---------
 
 Consider a class called "Vehicle" that stores a Vehicle cost, and a
-function that returns information about the vehicle as an string. Write a
+function that returns information about the vehicle as a string. Write a
 program that prints the lines "Vechicle cost is 12000" and "Vechicle cost is
 5999.99" in that order using the Vehicle class and the description function
 

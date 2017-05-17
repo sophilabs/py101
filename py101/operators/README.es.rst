@@ -3,7 +3,7 @@ Operators
 
 Hay cinco tipos básicos de operadores en Python. Los aritméticos, concatenación y duplicación.
 
-Como muchos lenguajes de programación, los números pueden interactuar usando la adición (+), substracción (-), división (/) y resto de división (%) que es conocido como el operador módulo. Los paréntesis pueden ser usados para agrupar expresiones, que puede ayudar a eliminar la ambigüedad y mejorar la legibilidad del código.
+Como muchos lenguajes de programación, los números pueden interactuar usando la adición (+), substracción (-), división (/) y resto de división (%) que es conocido como el operador módulo. Los paréntesis pueden ser usados para agrupar expresiones, ayudando a eliminar la ambigüedad y mejorar la legibilidad del código.
 
 .. sourcecode:: python
 
@@ -39,4 +39,4 @@ Las cadenas y las listas pueden ser duplicadas para formar secuencias más grand
 Desafío
 ---------
 
-Haz un programa que imprima la cadena 'ka' 108 veces utilizando dupliación de cadenas.
+Haz un programa que imprima la cadena 'ka' 10 veces utilizando dupliación de cadenas.

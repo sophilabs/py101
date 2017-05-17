@@ -3,9 +3,13 @@ Modules
 
 Python has a way to put definitions in a file and use them in another script.
 Such a file is called a module. Definitions from a module can be imported into
-other modules or into the main program file. The file name is the module
-name with the suffix .py appended. For instance, supposing there is file
-called mymodule.py in the current directory with the following contents:
+other modules or into the main program file.
+
+A module is a file containing Python definitions and statements. The file name
+is the module name with the suffix ".py" appended to it. Within a module, its
+name (as a string) is available as the value of the global variable __name__.
+For instance, supposing there is file called mymodule.py in the current
+directory with the following contents:
 
 .. sourcecode:: python
 
@@ -24,7 +28,7 @@ called mymodule.py in the current directory with the following contents:
     def say_hello():
         print("Say my name")
 
-In other files mymodule can be imported using the following syntax:
+In other files, mymodule can be imported using the following syntax:
 
 .. sourcecode:: python
 
@@ -34,16 +38,15 @@ In other files mymodule can be imported using the following syntax:
 Standard Modules
 ----------------
 
-Python comes with a library of standard modules, called the Python Library
-Reference. Some modules are built into the interpreter; these provide access to
+Python comes with a library of standard modules, called the Python Standard Library.
+Some modules are built into the interpreter; these provide access to
 operations that are not part of the core of the language but are nevertheless
 built in, either for efficiency or to provide access to operating system
-primitives such as system call.
+primitives such as system calls.
 
 Two very important functions come in handy when exploring modules in
-Python: the "dir" and "help" functions. One can look for which functions are
-implemented in each module by using the "dir" function. If help is needed,
-then the "help" function may be used.
+Python: the "dir" and "help" functions. The "dir" function can look for which functions are
+implemented in each module. If help is needed, then the "help" function may be used.
 
 .. sourcecode:: python
 

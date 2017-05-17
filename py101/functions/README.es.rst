@@ -9,7 +9,7 @@ Una función es un bloque de código organizado y reusable que puede ser utiliza
         print("Hola")
         print("¿Cómo estás?")
 
-Las funciones también pueden recibir argumentos: variables que se pasan desde el invocador a la función. Por ejemplo
+Las funciones también pueden recibir argumentos: variables que se pasan desde el invocador a la función. Por ejemplo:
 
 .. sourcecode:: python
 
@@ -28,7 +28,7 @@ Las funciones también pueden retornar un valor al invocador, usando la palabra 
             print("y no puede ser 0")
             return 0
 
-En algunos casos las funciones pueden ser vacías y no hacer nada. Por ejemplo si se planea ser escritas luego. En esos casos, esas funciones solo tienen la palabra clave "pass" en el cuerpo
+En algunos casos las funciones pueden ser vacías y no hacer nada. Por ejemplo si se planea escribirlas luego. En esos casos, esas funciones solo tienen la palabra clave "pass" en el cuerpo.
 
 .. sourcecode:: python
 
