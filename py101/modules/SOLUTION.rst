@@ -1,3 +1,17 @@
+numbers.py
+
 .. sourcecode:: python
 
-    print('Some solution here')
+    import math
+
+    def tangent(x):
+        return math.sin(x) / math.cos(x)
+
+
+main.py
+
+.. sourcecode:: python
+
+    import numbers
+
+    print(numbers.tangent(1))

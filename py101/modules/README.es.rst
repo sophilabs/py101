@@ -1,18 +1,16 @@
 Módulos
 -------
 
-Python permite escribir definiciones en un archivo y luego usarlas en otro.
-Tal archivo es llamado "módulo". Las definiciones de un módulo pueden se importadas
-en otros módulos o en el archivo principal del programa.
-
-Un módulo es un archivo que contiene definiciones y sentencias. El nombre de del archivo
-es el nombre del módulo más el sufijo ".py". Dentro de un módulo, su nombre (como una
-cadena) está disponible en la variable globa __name__. Por ejemplo, suponiendo que hay un
-archivo llamado mymodule.py en el directorio actual con el siguiente contenido:
+Python ofrece una manera de incluir definiciones en un archivo y usarlos
+desde otro script. Tal archivo es llamado un módulo. Las definiciones de un
+módulo pueden ser importado en otros módulos o al programa principal. El
+nombre del archivo es el nombre del módulo más la extensión ".py". Por
+ejemplo suponiendo que existe un archivo en la carpeta actual con el
+siguiente contenido:
 
 .. sourcecode:: python
 
-    # counts how many fibonacci numbers are less than n
+    # Cuenta cuantos números de fibonacci son menores que n
     def how_many_fib(n):
         a = 0
         b = 1
@@ -25,35 +23,30 @@ archivo llamado mymodule.py en el directorio actual con el siguiente contenido:
         return result
 
     def say_hello():
-        print("Say my name")
+        print("Di mi nombre")
 
-En otros archivos, mymodule puede ser importado con la siguiente sintaxis:
+En otros archivos mymodule puede ser importado usando la siguiente sintaxis:
 
 .. sourcecode:: python
 
     import mymodule
     print(mymodule.how_many_fib(1000) # prints 16
 
-Módulos estándares
-------------------
+Módulos Estándar
+----------------
 
-Python viene con su propia librería de módulos estándar, llamada "Python Standard
-Library". Algunos módulos están integrados al intérprete; estos proveen acceso a
-operaciones que no son parte del núcleo del lenguaje pero están integrados de todas
-formas, ya sea por eficiencia o para proveer acceso a primitivas del sistema operativo.
+Python viene con una biblioteca de módulos estándar, llamada "Python Library
+Reference". Algunos módulos ya están provistos en el intérprete, que proveen
+acceso a operaciones que no son parte del núcleo del lenguaje pero sin
+embargo están incluidas, ya sea por eficiencia o para proveer acceso a
+operaciones primitivas del sistema operativo, como las llamadas al sistema
+("system calls").
 
+Dos funciones muy importante a la hora de explorar módulos en Python son
+"dir" y "help". La primera permite saber qué funciones están implementadas
+en un módulo. Si se necesita ayuda, se puede utilizar la función "help" que
+muestra un texto acerca de cierta función específica.
 
-Dos funciones muy importantes resultan ser útiles al momento de explorar módulos: "dir"
-y "help". La primera puede buscar funciones dentro de cada módulo. Si se necesita
-ayuda sobre una función en particular, la función "help" puede ser usada.
-
-.. sourcecode:: python
-
-    import http
-    dir(http)
-    # prints [ 'HTTPStatus','IntEnum','__all__','__builtins__','__cached__',
-    # '__doc__','__file__','__loader__','__name__','__package__','__path__',
-    # '__spec__']
 
     help(http.HTTPStatus)
     # prints a large description if this field
@@ -65,11 +58,30 @@ Escribiendo módulos
 Para crear un módulo propio, simplemente crea un nuevo archivo con su nombre y la
 extensión py, y luego importalo usando su nombre con el comando "import".
 
+.. sourcecode:: python
+
+    import http
+    dir(http)
+    # imprime [ 'HTTPStatus','IntEnum','__all__','__builtins__','__cached__',
+    # '__doc__','__file__','__loader__','__name__','__package__','__path__',
+    # '__spec__']
+
+    help(http.HTTPStatus)
+    # Muestra una descripión larga de ese campo
+
+
+Escribiendo un módulo
+---------------------
+
+Para crear un módulo, simplemente hay que crear un archivo .py con el nombre
+del módulo y luego importándolo usando el nombre de archivo usando el
+comando import.
+
 Desafío
 -------
 
-Crea un módulo llamado "numbers" que defina una función tangent() que calcule la
-tangete mediante las funciones "sin" (seno) y "cos" (coseno) de la librería estándar,
-y luego un programa que imprima el valor de tangent(1) usando la función del módulo
-numbers. El programa debería imprimir la línea "1.557407724654902".
-
+Crea un módulo llamado "numbers" que defina una función tangent() que
+compute la tangente usando las funciones "sin" (seno) y "cos" (coseno) desde
+la biblioteca estándar "math", y luego un programa que imprima el valor de
+tangent(1) desde el módulo numbers. El progama debería imprimir una línea
+"1.557407724654902"

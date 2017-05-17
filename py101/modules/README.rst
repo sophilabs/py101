@@ -73,5 +73,5 @@ Challenge
 Create a module called "numbers" that defines a tangent() function that
 computes the tangent using the functions "sin" and "cos" from the standard math
 library, and then a program that prints the value of tangent(1) from the
-numbers library. The program should print one line "1.557407724654902"
+numbers module. The program should print one line "1.557407724654902"
 
