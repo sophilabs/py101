@@ -25,7 +25,7 @@ setup(
     },
     include_package_data=True,
     install_requires=[
-        'story>=1.1.5'
+        'story>=1.2.3'
     ],
     python_requires='!=2, !=3.0.*, !=3.1.*, !=3.2.*, <4',
     license='MIT license',
