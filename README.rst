@@ -33,6 +33,7 @@ Also we inspired in the following sites, which are great sources for learning Py
 * `workshopper/javascripting <https://github.com/workshopper/javascripting>`_
 * `learnpython.org <https://www.learnpython.org>`_
 * `tutorialspoint.com <https://www.tutorialspoint.com/python>`_
+* `InterviewBit <https://www.interviewbit.com/python-cheat-sheet/>`_
 
 License
 -------
